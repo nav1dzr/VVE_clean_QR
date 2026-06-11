@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VVE Clean – Professional Cleaning Services London</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #D4AF5A;
+      --gold-dark: #A8862E;
+      --black: #1a1a1a;
+      --dark: #daeaf7;        /* baby blue main bg */
+      --darker: #c2daf0;      /* slightly deeper blue for footer */
+      --white: #ffffff;
+      --off-white: #f5f3ef;
+      --text-muted: #2c4a6e;  /* navy-ish for readability on blue */
+      --text-sub: #4a6a8a;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #b8d4ec;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: var(--dark);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      position: relative;
+      background: var(--off-white);
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      opacity: 0.85;
+    }
+
+    /* Fallback hero if no image */
+    .hero-bg-fallback {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, #f0ede8 0%, #ddd8d0 50%, #c8c0b4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-fallback::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 10px;
+      width: 120px;
+      height: 180px;
+      background: linear-gradient(45deg, #aaa 0%, #ccc 100%);
+      clip-path: polygon(20% 0%, 80% 0%, 100% 5%, 100% 95%, 80% 100%, 20% 100%, 0% 95%, 0% 5%);
+      opacity: 0.3;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 220px;
+      background: linear-gradient(to bottom, rgba(245,243,239,0.1) 0%, rgba(245,243,239,0.05) 60%, rgba(245,243,239,0) 100%);
+      pointer-events: none;
+    }
+
+    .hero-logo-area {
+      background: var(--off-white);
+      padding: 40px 24px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .logo-vve {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .logo-v1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -2px;
+    }
+    .logo-v2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -2px;
+    }
+    .logo-e {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -2px;
+    }
+
+    .logo-stars {
+      position: relative;
+      display: inline-block;
+    }
+    .logo-stars::before {
+      content: '✦';
+      position: absolute;
+      top: -14px;
+      right: -18px;
+      font-size: 12px;
+      color: var(--gold);
+    }
+    .logo-stars::after {
+      content: '✦ ✦';
+      position: absolute;
+      top: -20px;
+      right: -38px;
+      font-size: 8px;
+      color: var(--gold);
+      letter-spacing: 4px;
+    }
+
+    .logo-clean-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: -4px;
+    }
+    .logo-line {
+      height: 1px;
+      width: 40px;
+      background: linear-gradient(to right, transparent, var(--gold-dark));
+    }
+    .logo-line.right {
+      background: linear-gradient(to left, transparent, var(--gold-dark));
+    }
+    .logo-clean {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 8px;
+      color: var(--black);
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    .tagline-top {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--black);
+      text-transform: uppercase;
+    }
+    .tagline-bottom {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* Gold wave divider */
+    .wave-divider {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      background: var(--dark);  /* blue shows below the wave */
+    }
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ── DARK SECTION ── */
+    .dark-section {
+      background: var(--dark);
+      padding: 28px 24px 0;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .services-title {
+      color: var(--gold-dark);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .services-subtitle {
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-top: 6px;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      margin: 18px 0 24px;
+      flex-wrap: nowrap;
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 11.5px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .badge svg {
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+    .badge-divider {
+      width: 1px;
+      height: 16px;
+      background: #7aaacf;
+      margin: 0 12px;
+    }
+
+    /* ── ACTION BUTTONS ── */
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 0 0 24px;
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 14px 16px;
+      text-decoration: none;
+      color: var(--black);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+    .action-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+    }
+    .action-btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .btn-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .btn-text {
+      flex: 1;
+    }
+    .btn-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.2;
+    }
+    .btn-sub {
+      font-size: 12px;
+      font-weight: 400;
+      color: #5a7a9a;
+      margin-top: 2px;
+    }
+
+    .btn-arrow {
+      color: #7aaacf;
+      font-size: 18px;
+      font-weight: 300;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #16314f;
+      padding: 32px 24px 22px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .footer-name {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #E3BD63;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 16px;
+      margin-bottom: 18px;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #e8eef5;
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+    .footer-item svg {
+      flex-shrink: 0;
+      opacity: 1;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: rgba(227,189,99,0.35);
+      margin: 18px 0;
+    }
+
+    .footer-company {
+      text-align: center;
+      color: #aebfd2;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 10px;
+    }
+
+    .footer-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      justify-content: center;
+      color: #8ba3bd;
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- HERO IMAGE -->
+    <div class="hero">
+
+      <!-- Logo Area -->
+      <div class="hero-logo-area">
+        <div class="logo-vve">
+          <span class="logo-v1">V</span>
+          <span class="logo-v2">V</span>
+          <span class="logo-e logo-stars">E</span>
+        </div>
+        <div class="logo-clean-row">
+          <div class="logo-line"></div>
+          <span class="logo-clean">Clean</span>
+          <div class="logo-line right"></div>
+        </div>
+        <div class="tagline">
+          <div class="tagline-top">Professional Cleaning.</div>
+          <div class="tagline-bottom">Exceptional Results.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WAVE DIVIDER -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 480 55" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" height="55">
+        <!-- cream shape above the wave (matches hero background) -->
+        <path d="M0,0 L0,28 Q120,54 240,28 Q360,2 480,28 L480,0 Z" fill="#f5f3ef"/>
+        <!-- blue fill below the wave line (matches dark section bg) -->
+        <path d="M0,28 Q120,54 240,28 Q360,2 480,28 L480,55 L0,55 Z" fill="#daeaf7"/>
+        <!-- gold stroke on top -->
+        <path d="M0,28 Q120,54 240,28 Q360,2 480,28" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.85"/>
+      </svg>
+    </div>
+
+    <!-- DARK SECTION -->
+    <div class="dark-section">
+
+      <!-- Header text -->
+      <div class="services-header">
+        <div class="services-title">Professional Cleaning Services | London</div>
+        <div class="services-subtitle">Reliable, trustworthy and professional cleaning<br>services for homes and businesses.</div>
+      </div>
+
+      <!-- Badges -->
+      <div class="badges">
+        <div class="badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+          <span>Fully Insured</span>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span>Fast Response</span>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>Free Estimates</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/447845451111" class="action-btn">
+          <div class="btn-icon" style="background:#25D366;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </div>
+          <div class="btn-text">
+            <div class="btn-title">Chat &amp; Get Quote</div>
+            <div class="btn-sub">Chat with us on WhatsApp</div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </a>
+
+        <!-- Get Quote Online -->
+        <a href="https://www.vveclean.co.uk" class="action-btn">
+          <div class="btn-icon" style="background:#1A73E8;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <div class="btn-text">
+            <div class="btn-title">Get Quote Online</div>
+            <div class="btn-sub">Visit our website to get a quote</div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </a>
+
+        <!-- Call Us -->
+        <a href="tel:02080502233" class="action-btn">
+          <div class="btn-icon" style="background:#34A853;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+          </div>
+          <div class="btn-text">
+            <div class="btn-title">Call Us Now</div>
+            <div class="btn-sub">020 8050 2233</div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </a>
+
+        <!-- Book Now -->
+        <a href="https://www.vveclean.co.uk/book" class="action-btn">
+          <div class="btn-icon" style="background:#FF6B35;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            </svg>
+          </div>
+          <div class="btn-text">
+            <div class="btn-title">Book Now</div>
+            <div class="btn-sub">Schedule your appointment</div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </a>
+
+        <!-- Before & After Photos -->
+        <a href="https://www.instagram.com/vveclean" class="action-btn">
+          <div class="btn-icon" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </div>
+          <div class="btn-text">
+            <div class="btn-title">Before &amp; After Photos</div>
+            <div class="btn-sub">See our latest work on Instagram</div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </a>
+
+        <!-- Leave / View Reviews -->
+        <a href="https://g.page/vveclean/review" class="action-btn">
+          <div class="btn-icon" style="background:#FBBC05;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+          </div>
+          <div class="btn-text">
+            <div class="btn-title">Leave / View Reviews</div>
+            <div class="btn-sub">See what our customers say</div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-name">VVE Clean</div>
+
+      <div class="footer-grid">
+        <!-- Phone -->
+        <div class="footer-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#4CC76A"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          020 8050 2233
+        </div>
+        <!-- Email -->
+        <div class="footer-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F47A6E" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          contact@vveclean.co.uk
+        </div>
+        <!-- WhatsApp -->
+        <div class="footer-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          +447845451111
+        </div>
+        <!-- Website -->
+        <div class="footer-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5C9DF5" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          www.vveclean.co.uk
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <div class="footer-company">Company No: 12345678</div>
+      <div class="footer-note">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8ba3bd" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Visits are by appointment only. Please book before visiting.
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
